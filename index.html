@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.20.2/math.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js"></script>
+        <script>
+            function randBool() {
+                return Math.random() >= 0.5;
+            }
+
+            /**
+             * Returns a random number between min (inclusive) and max (exclusive)
+             */
+            function getRandomArbitrary(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            /**
+             * Returns a random integer between min (inclusive) and max (inclusive)
+             * Using Math.round() will give you a non-uniform distribution!
+             */
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function knownBinomial() {
+                //binomial expansion equation creator where there is a defined answer
+                //in the form (a + b)^c where all three variables: a, b, c are random
+                let a = 5;
+                let b = 5;
+                let c = 1;
+                let equation = `(${a} + ${b})^${c}`;
+                let answer = Math.pow((a + b), c); //return an answer using the specified variables
+                console.log(equation);
+                console.log(answer);
+            }
+
+            function unknownBinomial() {
+                //binomial expansion with unknown variables
+                //form (a + b)^c where c is a random integer and a, b might be unknown or a random value
+
+                let a = getRandomInt(0, 10);
+                let b = getRandomInt(0, 10);
+                let c = getRandomInt(2, 5);
+
+                //chooses between true and false
+                if (randBool()) {
+                    //if it's true, make b unknown
+                    b = "b";
+                }
+
+                //the actual binomial formula:
+                let total = "";
+                //loop through to make each part of the answer
+                for (i = 0; i == c; i++) {
+                    let x = c - i;
+                    let y = i;
+                    let choose = math.permutations(c, i);
+
+                    total += (choose + "(" + (a + "^" + x) + (b + "^" + y) + ")")
+                }
+                console.log(total);
+            }
+
+            unknownBinomial();
+        </script>
+    </body>
+</html>

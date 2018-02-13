@@ -42,12 +42,12 @@
                 //binomial expansion with unknown variables
                 //form (a + b)^c where c is a random integer and a, b might be unknown or a random value
 
-                let a = getRandomInt(0, 10);
+                let a = "a";
                 let b = getRandomInt(0, 10);
                 let c = getRandomInt(2, 5);
 
                 //chooses between true and false
-                if (randBool()) {
+                if (randBool() == true) {
                     //if it's true, make b unknown
                     b = "b";
                 }

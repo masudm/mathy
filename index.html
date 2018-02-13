@@ -55,12 +55,13 @@
                 //the actual binomial formula:
                 let total = "";
                 //loop through to make each part of the answer
-                for (i = 0; i == c; i++) {
+                for (i = 0; i <= c; i++) {
                     let x = c - i;
                     let y = i;
-                    let choose = math.permutations(c, i);
-
-                    total += (choose + "(" + (a + "^" + x) + (b + "^" + y) + ")")
+                    let choose = math.combinations(c, i);
+                    console.log(choose);
+                    //total += (choose + "(" + (a + "^" + x) + (b + "^" + y) + ")")
+                    total += `${choose}(${a}^${x} + ${b}^${y})`;
                 }
                 console.log(total);
             }
